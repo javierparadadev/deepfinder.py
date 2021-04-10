@@ -32,4 +32,23 @@ def deep_get(
 
 
 def __rec_helper(obj: any, path: [str]):
-    return 'any'
+    if not path:
+        return obj
+
+    current_path = path.pop(0)
+
+    if isinstance(obj, dict):
+        return __rec_helper(obj[current_path], path)
+
+    if isinstance(obj, list):
+        if current_path == '*':
+            return [__rec_helper(sub_obj, path) for sub_obj in obj]
+        if current_path == '?':
+            for sub_obj in obj:
+                result = __rec_helper(sub_obj, path)
+                if result is not None:
+                    return result
+            return None
+        return __rec_helper(obj[int(path)], path)
+
+    return None
