@@ -18,7 +18,10 @@ def deep_get(
     """
     result: any = None
     try:
-        result = __rec_helper(obj, path.split(token))
+        path = path.split(token)
+        if path == ['']:
+            path = None
+        result = __rec_helper(obj, path)
     except Exception as e:
         if raise_err:
             raise e
