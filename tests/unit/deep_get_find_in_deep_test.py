@@ -3,7 +3,7 @@ import unittest
 from deepgetter.deep_get import deep_get
 
 
-class TestSum(unittest.TestCase):
+class TestFindInDeep(unittest.TestCase):
     def test_dict_with_0_lvl(self):
         """
         Test basic dictionary with no profundity level.
@@ -26,7 +26,7 @@ class TestSum(unittest.TestCase):
 
     def test_dict_with_2_lvl(self):
         """
-        Test basic dictionary with two profundity levels.
+        Test basic dictionary with 2 profundity levels.
         """
         data: dict = {
             'value': {
@@ -34,6 +34,20 @@ class TestSum(unittest.TestCase):
             },
         }
         result = deep_get(data, 'value.subdata')
+        self.assertEqual(result, 39)
+
+    def test_dict_with_3_lvl(self):
+        """
+        Test basic dictionary with 3 profundity levels.
+        """
+        data: dict = {
+            'value': {
+                'sub-data': {
+                    'sub-sub-data': 39,
+                },
+            },
+        }
+        result = deep_get(data, 'value.sub-data.sub-sub-data')
         self.assertEqual(result, 39)
 
 
