@@ -1,0 +1,10 @@
+on: [push]
+name: tests
+jobs:
+    tests:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone and checkout branch
+              uses: actions/checkout@v1
+            - name: Run tests
+              run: python3 -m unittest discover -s ./tests -p '*_test.py'
