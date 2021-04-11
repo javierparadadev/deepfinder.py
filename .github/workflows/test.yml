@@ -6,5 +6,7 @@ jobs:
         steps:
             - name: Clone and checkout branch
               uses: actions/checkout@v1
+            - name: Build project
+              run: make
             - name: Run tests
-              run: python3 -m unittest discover -s ./tests -p '*_test.py'
+              run: make test
