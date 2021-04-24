@@ -1,15 +1,15 @@
 import unittest
 
-from deepgetter.deep_get import deep_get
+from deepfinder.deep_find import deep_find
 
 
-class TestGetByType(unittest.TestCase):
+class TestFindByType(unittest.TestCase):
     def test_with_basic_number(self):
         """
         Test basic number
         """
         data: int = 39
-        result = deep_get(data, '')
+        result = deep_find(data, '')
         self.assertEqual(result, 39)
 
     def test_with_number_in_dict(self):
@@ -19,7 +19,7 @@ class TestGetByType(unittest.TestCase):
         data: dict = {
             'value': 39,
         }
-        result = deep_get(data, 'value')
+        result = deep_find(data, 'value')
         self.assertEqual(result, 39)
 
     def test_with_basic_str(self):
@@ -27,7 +27,7 @@ class TestGetByType(unittest.TestCase):
         Test basic string
         """
         data: str = 'test str'
-        result = deep_get(data, '')
+        result = deep_find(data, '')
         self.assertEqual(result, 'test str')
 
     def test_with_str_in_dict(self):
@@ -37,7 +37,7 @@ class TestGetByType(unittest.TestCase):
         data: dict = {
             'value': 'test str',
         }
-        result = deep_get(data, 'value')
+        result = deep_find(data, 'value')
         self.assertEqual(result, 'test str')
 
 

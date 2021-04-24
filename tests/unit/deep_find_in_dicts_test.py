@@ -1,9 +1,9 @@
 import unittest
 
-from deepgetter.deep_get import deep_get
+from deepfinder.deep_find import deep_find
 
 
-class TestFindInDeep(unittest.TestCase):
+class TestFindInDicts(unittest.TestCase):
     def test_dict_with_0_lvl(self):
         """
         Test basic dictionary with no profundity level.
@@ -11,7 +11,7 @@ class TestFindInDeep(unittest.TestCase):
         data: dict = {
             'value': 39,
         }
-        result = deep_get(data, '')
+        result = deep_find(data, '')
         self.assertEqual(result, data)
 
     def test_dict_with_1_lvl(self):
@@ -21,7 +21,7 @@ class TestFindInDeep(unittest.TestCase):
         data: dict = {
             'value': 39,
         }
-        result = deep_get(data, 'value')
+        result = deep_find(data, 'value')
         self.assertEqual(result, 39)
 
     def test_dict_with_2_lvl(self):
@@ -33,7 +33,7 @@ class TestFindInDeep(unittest.TestCase):
                 'subdata': 39,
             },
         }
-        result = deep_get(data, 'value.subdata')
+        result = deep_find(data, 'value.subdata')
         self.assertEqual(result, 39)
 
     def test_dict_with_3_lvl(self):
@@ -47,7 +47,7 @@ class TestFindInDeep(unittest.TestCase):
                 },
             },
         }
-        result = deep_get(data, 'value.sub-data.sub-sub-data')
+        result = deep_find(data, 'value.sub-data.sub-sub-data')
         self.assertEqual(result, 39)
 
 

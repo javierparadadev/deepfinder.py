@@ -1,4 +1,4 @@
-def deep_get(
+def deep_find(
         obj: any,
         path: str,
         token: str = '.',
@@ -41,17 +41,20 @@ def __rec_helper(obj: any, path: [str]):
     current_path = path.pop(0)
 
     if isinstance(obj, dict):
-        return __rec_helper(obj[current_path], path)
+        return __rec_helper(obj.get(current_path), path)
 
     if isinstance(obj, list):
         if current_path == '*':
-            return [__rec_helper(sub_obj, path) for sub_obj in obj]
+            return [__rec_helper(sub_obj, path.copy()) for sub_obj in obj]
         if current_path == '?':
             for sub_obj in obj:
-                result = __rec_helper(sub_obj, path)
+                result = __rec_helper(sub_obj, path.copy())
                 if result is not None:
                     return result
             return None
-        return __rec_helper(obj[int(path)], path)
+        current_path_index = int(current_path)
+        if current_path_index >= len(obj):
+            return None
+        return __rec_helper(obj[current_path_index], path)
 
     return None
