@@ -5,15 +5,15 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='deepfinder',
-    packages=find_packages(),
     version='0.0.1',
-    description='',
+    description='Search attributes easily within structures of type dictionary, list and embedded substructures with '
+                'simple format "dict.users.0.name".',
     author='Javier Parada',
-    author_email="javierparada@protonmail.com",
     license='MIT',
-    url="https://github.com/parada3desu/deepfinder.py",
+    py_modules=['deep_get'],
+    url='https://github.com/parada3desu/deepfinder.py',
     long_description=long_description,
-    long_description_content_type="text/markdown",
-    package_dir={"": "deepfinder"},
+    long_description_content_type='text/markdown',
+    package_dir={'': 'src'},
     python_requires=">=3.6",
 )
