@@ -10,7 +10,7 @@ setup(
                 'simple format "dict.users.0.name".',
     author='Javier Parada',
     license='MIT',
-    py_modules=['deep_get'],
+    py_modules=['deep_find'],
     url='https://github.com/parada3desu/deepfinder.py',
     long_description=long_description,
     long_description_content_type='text/markdown',

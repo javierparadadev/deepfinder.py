@@ -1,6 +1,6 @@
 import unittest
 
-from src.deep_find import deep_find
+from src.deepfinder import deep_find
 
 
 class TestFindInLists(unittest.TestCase):
