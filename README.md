@@ -5,3 +5,9 @@
 
 
 Search attributes easily within structures of type dictionary, list and embedded substructures with simple format 'dict.users.0.name'.
+
+## Installation
+
+```Shell
+  pip install deepfinder
+```

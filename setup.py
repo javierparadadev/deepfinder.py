@@ -1,4 +1,4 @@
-from setuptools import find_packages, setup
+from setuptools import setup
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -9,8 +9,9 @@ setup(
     description='Search attributes easily within structures of type dictionary, list and embedded substructures with '
                 'simple format "dict.users.0.name".',
     author='Javier Parada',
+    author_email='javierparada@protonmail.com',
     license='MIT',
-    py_modules=['deep_find'],
+    py_modules=['deepfinder'],
     url='https://github.com/parada3desu/deepfinder.py',
     long_description=long_description,
     long_description_content_type='text/markdown',
