@@ -76,5 +76,5 @@ user: dict = {
     }]
 }
 print(deep_find(user, 'pokemons.?.ball'))
-# output: ['superball']
+# output: 'superball'
 ```
