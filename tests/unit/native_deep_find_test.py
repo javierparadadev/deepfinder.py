@@ -5,7 +5,7 @@ from deepfinder.nativify import nativify, DeepFinderList, DeepFinderDict
 
 class TestNativeDeepFind(unittest.TestCase):
 
-    def test_first_value_of_a_list(self):
+    def test_deep_finder_list(self):
         """
         Should run native deepFind in list.
         """
@@ -13,7 +13,7 @@ class TestNativeDeepFind(unittest.TestCase):
         result = data.deep_find('0')
         self.assertEqual(result, 'a')
 
-    def test_first_value_of_a_dict(self):
+    def test_deep_finder_dict(self):
         """
         Should run native deepFind in dict.
         """
