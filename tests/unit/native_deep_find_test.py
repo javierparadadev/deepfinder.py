@@ -1,6 +1,6 @@
 import unittest
 
-from deepfinder.nativify import DeepFinderList, DeepFinderDict
+from deepfinder.entity import DeepFinderList, DeepFinderDict
 
 
 class TestNativeDeepFind(unittest.TestCase):
