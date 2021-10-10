@@ -1,13 +1,13 @@
 import unittest
 
-from deepfinder.nativify import nativify, DeepFinderList, DeepFinderDict
+from deepfinder.nativify import DeepFinderList, DeepFinderDict
 
 
 class TestNativeDeepFind(unittest.TestCase):
 
     def test_deep_finder_list(self):
         """
-        Should run native deepFind in list.
+        Should run deepFind in list.
         """
         data: [str] = DeepFinderList(['a', 'b', 'c'])
         result = data.deep_find('0')
@@ -15,7 +15,7 @@ class TestNativeDeepFind(unittest.TestCase):
 
     def test_deep_finder_dict(self):
         """
-        Should run native deepFind in dict.
+        Should run deepFind in dict.
         """
         data: [str] = DeepFinderDict({'a': 'b', 'c': 'd'})
         result = data.deep_find('a')
