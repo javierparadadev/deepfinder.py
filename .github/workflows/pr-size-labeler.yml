@@ -1,4 +1,4 @@
-name: pr-size-labeler
+name: PR size labeler
 
 on: [pull_request]
 
