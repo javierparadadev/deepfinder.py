@@ -3,30 +3,19 @@ def deep_find(
         path: str,
         token: str = '.',
         default_return: any = None,
-        default_if_err: any = None,
-        raise_err: bool = False,
 ) -> any:
     """
         Description
-        :param raise_err:
-        :param default_if_err:
         :param default_return: default return if function raise an error or param is None.
         :param token: token to separate attributes.
         :param obj: obj in which find.
         :param path: path to wanted attribute.
         :return: found attribute.
     """
-    result: any = None
-    try:
-        path = path.split(token)
-        if path == ['']:
-            path = None
-        result = __rec_helper(obj, path)
-    except Exception as e:
-        if raise_err:
-            raise e
-        if default_if_err is not None:
-            return default_if_err
+    path = path.split(token)
+    if path == ['']:
+        path = None
+    result = __rec_helper(obj, path)
 
     if result is not None:
         return result
@@ -45,7 +34,9 @@ def __rec_helper(obj: any, path: [str]):
 
     if isinstance(obj, list):
         if current_path == '*':
-            return [__rec_helper(sub_obj, path.copy()) for sub_obj in obj]
+            with_nones_results = [__rec_helper(sub_obj, path.copy()) for sub_obj in obj]
+            clear_results = [obj for obj in with_nones_results if obj is not None]
+            return clear_results
         if current_path == '?':
             for sub_obj in obj:
                 result = __rec_helper(sub_obj, path.copy())

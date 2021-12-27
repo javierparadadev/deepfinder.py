@@ -8,5 +8,5 @@ deps:
 
 # Run tests
 .PHONY = test
-test: build
+test:
 	python -m unittest discover -s ./tests -p '*_test.py'
