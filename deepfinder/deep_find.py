@@ -37,15 +37,21 @@ def __rec_helper(obj: any, path: [str]):
             with_nones_results = [__rec_helper(sub_obj, path.copy()) for sub_obj in obj]
             clear_results = [obj for obj in with_nones_results if obj is not None]
             return clear_results
+
         if current_path == '?':
             for sub_obj in obj:
                 result = __rec_helper(sub_obj, path.copy())
                 if result is not None:
                     return result
             return None
+
         current_path_index = int(current_path)
         if current_path_index >= len(obj):
             return None
+
         return __rec_helper(obj[current_path_index], path)
+
+    if hasattr(obj, '__dict__') and current_path in obj.__dict__:
+        return __rec_helper(obj.__dict__[current_path], path)
 
     return None
