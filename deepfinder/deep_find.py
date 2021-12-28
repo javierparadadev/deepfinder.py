@@ -34,6 +34,9 @@ def __rec_helper(obj: any, path: [str]):
 
     if isinstance(obj, list):
         if current_path == '*':
+            return [__rec_helper(sub_obj, path.copy()) for sub_obj in obj]
+
+        if current_path in ['*?', '?*']:
             with_nones_results = [__rec_helper(sub_obj, path.copy()) for sub_obj in obj]
             clear_results = [obj for obj in with_nones_results if obj is not None]
             return clear_results
