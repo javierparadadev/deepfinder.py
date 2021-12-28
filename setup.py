@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='deepfinder',
-    version='0.0.8',
+    version='0.1.0',
     description='Search attributes easily within structures of type dictionary, list and embedded substructures with '
                 'simple format "dict.users.0.name".',
     author='Javier Parada',
