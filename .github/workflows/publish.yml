@@ -31,6 +31,9 @@ jobs:
       - name: Install twine
         run: pip install twine
 
+      - name: Install wheel
+        run: pip install wheel
+
       - name: Build package
         run: python setup.py sdist bdist_wheel
 
