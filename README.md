@@ -2,7 +2,6 @@
 
 [![GitHub](https://img.shields.io/github/license/parada3desu/deepfinder.py)](https://github.com/parada3desu/deepfinder.py/blob/main/LICENSE)
 [![Pypi](https://img.shields.io/pypi/v/deepfinder)](https://pypi.org/project/deepfinder/)
-[![Downloads](https://pepy.tech/badge/deepfinder)](https://pepy.tech/project/deepfinder)
 [![GA](https://github.com/parada3desu/deepfinder.py/workflows/tests/badge.svg)](https://github.com/parada3desu/deepfinder.py/actions/workflows/test.yml)
 
 Search attributes easily within structures of type dictionary, list and embedded substructures with simple format 'dict.users.0.name'.
