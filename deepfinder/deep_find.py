@@ -50,8 +50,7 @@ def __rec_helper(obj: any, path: [str]):
 
         try:
             current_path_index = int(current_path)
-        except Exception as e:
-            print(repr(e))
+        except ValueError as _:
             return None
         if current_path_index >= len(obj):
             return None
