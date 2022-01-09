@@ -12,6 +12,22 @@ class TestFindInLists(unittest.TestCase):
         result = deep_find(data, '0')
         self.assertEqual(result, 'a')
 
+    def test_array_access_by_non_numeric_value(self):
+        """
+        Should return None if array index is not numeric
+        """
+        data: [str] = ['a', 'b', 'c']
+        result = deep_find(data, 'b')
+        self.assertEqual(result, None)
+
+    def test_array_access_by_not_hashable_json(self):
+        """
+        Should return None if array index is not numeric
+        """
+        data: [str] = ['a', 'b', 'c']
+        result = deep_find(data, '[]')
+        self.assertEqual(result, None)
+
     def test_first_value_of_embedded_list(self):
         """
         Should return first value of a embedded list.
