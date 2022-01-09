@@ -1,8 +1,11 @@
+from typing import Any
+
+
 def deep_find(
-        obj: any,
+        obj: Any,
         path: str,
         token: str = '.',
-        default_return: any = None,
+        default_return: Any = None,
 ) -> any:
     """
         Description
