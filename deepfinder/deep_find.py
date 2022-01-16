@@ -6,7 +6,7 @@ def deep_find(
         path: str,
         token: str = '.',
         default_return: Any = None,
-) -> any:
+) -> Any:
     """
         Description
         :param default_return: default return if function raise an error or param is None.
@@ -26,7 +26,7 @@ def deep_find(
     return default_return
 
 
-def __rec_helper(obj: any, path: [str]):
+def __rec_helper(obj: Any, path: list[str]):
     if not path:
         return obj
 
