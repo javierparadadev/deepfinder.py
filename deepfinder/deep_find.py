@@ -26,7 +26,7 @@ def deep_find(
     return default_return
 
 
-def _rec_helper(obj: Any, path: list[str]):
+def _rec_helper(obj: Any, path: list[str]) -> Any:
     if not path:
         return obj
 
