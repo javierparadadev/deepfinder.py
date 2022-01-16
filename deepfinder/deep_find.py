@@ -60,7 +60,7 @@ def __rec_helper(obj: Any, path: list[str]):
 
         return __rec_helper(obj[current_path_index], path)
 
-    if hasattr(obj, '__dict__') and current_path in obj.__dict__:
-        return __rec_helper(obj.__dict__[current_path], path)
+    if hasattr(obj, '__dict__') and current_path in vars(obj):
+        return __rec_helper(vars(obj)[current_path], path)
 
     return
