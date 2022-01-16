@@ -18,7 +18,7 @@ def deep_find(
     path = path.split(token)
     if path == ['']:
         path = None
-    result = __rec_helper(obj, path)
+    result = _rec_helper(obj, path)
 
     if result is not None:
         return result
@@ -26,27 +26,27 @@ def deep_find(
     return default_return
 
 
-def __rec_helper(obj: Any, path: list[str]):
+def _rec_helper(obj: Any, path: list[str]):
     if not path:
         return obj
 
     current_path = path.pop(0)
 
     if isinstance(obj, dict):
-        return __rec_helper(obj.get(current_path), path)
+        return _rec_helper(obj.get(current_path), path)
 
     if isinstance(obj, list):
         if current_path == '*':
-            return [__rec_helper(sub_obj, path.copy()) for sub_obj in obj]
+            return [_rec_helper(sub_obj, path.copy()) for sub_obj in obj]
 
         if current_path in ['*?', '?*']:
-            with_nones_results = [__rec_helper(sub_obj, path.copy()) for sub_obj in obj]
+            with_nones_results = [_rec_helper(sub_obj, path.copy()) for sub_obj in obj]
             clear_results = [obj for obj in with_nones_results if obj is not None]
             return clear_results
 
         if current_path == '?':
             for sub_obj in obj:
-                result = __rec_helper(sub_obj, path.copy())
+                result = _rec_helper(sub_obj, path.copy())
                 if result is not None:
                     return result
             return
@@ -58,9 +58,9 @@ def __rec_helper(obj: Any, path: list[str]):
         if current_path_index >= len(obj):
             return
 
-        return __rec_helper(obj[current_path_index], path)
+        return _rec_helper(obj[current_path_index], path)
 
     if hasattr(obj, '__dict__') and current_path in vars(obj):
-        return __rec_helper(vars(obj)[current_path], path)
+        return _rec_helper(vars(obj)[current_path], path)
 
     return
