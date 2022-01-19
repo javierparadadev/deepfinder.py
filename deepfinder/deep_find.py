@@ -1,11 +1,13 @@
+from __future__ import annotations
+
 from typing import Any
 
 
 def deep_find(
-        obj: Any,
-        path: str,
-        token: str = '.',
-        default_return: Any = None,
+    obj: Any,
+    path: str,
+    token: str = '.',
+    default_return: Any = None,
 ) -> Any:
     """
         Description
