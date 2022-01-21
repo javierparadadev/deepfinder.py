@@ -37,6 +37,9 @@ def _rec_helper(obj: Any, path: list[str]) -> Any:
     if isinstance(obj, dict):
         return _rec_helper(obj.get(current_path), path)
 
+    if isinstance(obj, set):
+        obj = list(obj)
+
     if isinstance(obj, list):
         if current_path == '*':
             return [_rec_helper(sub_obj, path.copy()) for sub_obj in obj]
