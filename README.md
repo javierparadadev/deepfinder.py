@@ -6,7 +6,7 @@
 [![Downloads](https://pepy.tech/badge/deepfinder)](https://pepy.tech/project/deepfinder)
 [![GA](https://github.com/parada3desu/deepfinder.py/workflows/tests/badge.svg)](https://github.com/parada3desu/deepfinder.py/actions/workflows/test.yml)
 
-Search attributes easily within structures of type dictionary, list and embedded substructures with simple format 'dict.users.0.name'.
+Search attributes easily using dot paths. Within structures of type dictionary, list and embedded substructures with simple format 'dict.users.0.name'.
 
 ## Getting Started
 
