@@ -1,4 +1,4 @@
-# Deep finder
+# Deepfinder
 
 ![](https://img.shields.io/badge/PRs-welcome-green.svg)
 [![GitHub](https://img.shields.io/github/license/parada3desu/deepfinder.py)](https://github.com/parada3desu/deepfinder.py/blob/main/LICENSE)
