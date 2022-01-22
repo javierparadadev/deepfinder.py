@@ -25,7 +25,7 @@ from deepfinder import deep_find
 user: dict = {
     'name': 'ash',
     'links': {
-        'pokehub': '@ash',
+        'pokehub': '@ash'
     },
 }
 print(deep_find(user, 'links.pokehub'))
@@ -38,11 +38,16 @@ print(deep_find(user, 'links.pokehub'))
 from deepfinder import deep_find
 user: dict = {
     'name': 'ash',
-    'pokemons': [{
-        'name': 'pikachu',
-    }, {
-        'name': 'charmander',
-    }]
+    'pokemons': [
+        {
+            'name': 'pikachu',
+            'type': 'electric'
+        },
+        {
+            'name': 'charmander',
+            'type': 'fire'
+        }
+    ]
 }
 print(deep_find(user, 'pokemons.0.name'))
 # output: 'pikachu'
@@ -54,32 +59,66 @@ print(deep_find(user, 'pokemons.0.name'))
 from deepfinder import deep_find
 user: dict = {
     'name': 'ash',
-    'pokemons': [{
-        'name': 'pikachu',
-    }, {
-        'name': 'charmander',
-    }]
+    'pokemons': [
+        {
+            'name': 'pikachu',
+            'type': 'electric'
+        }, 
+        {
+            'name': 'charmander',
+            'type': 'fire'
+        }
+    ]
 }
 print(deep_find(user, 'pokemons.*.name'))
 # output: ['pikachu', 'charmander']
 ```
 
-#### List and not null result sample
+#### Find the first non-null result
 
 ```python
 from deepfinder import deep_find
 user: dict = {
     'name': 'ash',
-    'pokemons': [{
-        'name': 'pikachu',
-    }, {
-        'name': 'charmander',
-        'ball': 'superball',
-    }]
+    'pokemons': [
+        {
+            'name': 'pikachu',
+        },
+        {
+            'name': 'charmander',
+            'ball': 'superball'
+        }
+    ]
 }
 print(deep_find(user, 'pokemons.?.ball'))
 # output: 'superball'
 ```
+
+#### Find all non-null results
+
+```python
+from deepfinder import deep_find
+user: dict = {
+    'name': 'ash',
+    'pokemons': [
+        {
+            'name': 'pikachu',
+        },
+        {
+            'name': 'charmander',
+            'ball': 'superball'
+        },
+        {
+            'name': 'lucario',
+            'ball': 'ultraball'
+        }
+    ]
+}
+print(deep_find(user, 'pokemons.*?.ball'))
+# output: ['superball', 'ultraball']
+```
+
+
 
 ### Use custom dict and list
 
@@ -87,12 +126,15 @@ print(deep_find(user, 'pokemons.?.ball'))
 from deepfinder.entity import DeepFinderDict
 user: dict = DeepFinderDict({
     'name': 'ash',
-    'pokemons': [{
-        'name': 'pikachu',
-    }, {
-        'name': 'charmander',
-        'ball': 'superball',
-    }]
+    'pokemons': [
+        {
+            'name': 'pikachu'
+        },
+        {
+            'name': 'charmander',
+            'ball': 'superball'
+        }
+    ]
 })
 print(user.deep_find('pokemons.?.ball'))
 # output: 'superball'
@@ -102,12 +144,15 @@ print(user.deep_find('pokemons.?.ball'))
 from deepfinder.entity import DeepFinderList
 users: list = DeepFinderList([{
     'name': 'ash',
-    'pokemons': [{
-        'name': 'pikachu',
-    }, {
-        'name': 'charmander',
-        'ball': 'superball',
-    }]
+    'pokemons': [
+        {
+            'name': 'pikachu'
+        }, 
+        {
+            'name': 'charmander',
+            'ball': 'superball'
+        }
+    ]
 }])
 print(users.deep_find('0.pokemons.?.ball'))
 # output: 'superball'
