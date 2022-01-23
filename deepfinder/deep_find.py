@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, Iterable
 
 
 def deep_find(
@@ -37,7 +37,7 @@ def _rec_helper(obj: Any, path: list[str]) -> Any:
     if isinstance(obj, dict):
         return _rec_helper(obj.get(current_path), path)
 
-    if isinstance(obj, set):
+    if isinstance(obj, Iterable) and not isinstance(obj, str):
         obj = list(obj)
 
     if isinstance(obj, list):
