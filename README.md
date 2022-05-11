@@ -1,10 +1,10 @@
 # Deepfinder
 
 ![](https://img.shields.io/badge/PRs-welcome-green.svg)
-[![GitHub](https://img.shields.io/github/license/thekichune/deepfinder.py)](https://github.com/thekichune/deepfinder.py/blob/main/LICENSE)
+[![GitHub](https://img.shields.io/github/license/jparadadev/deepfinder.py)](https://github.com/jparadadev/deepfinder.py/blob/main/LICENSE)
 [![Pypi](https://img.shields.io/pypi/v/deepfinder)](https://pypi.org/project/deepfinder/)
 [![Downloads](https://pepy.tech/badge/deepfinder)](https://pepy.tech/project/deepfinder)
-[![GA](https://github.com/thekichune/deepfinder.py/workflows/Tests/badge.svg)](https://github.com/thekichune/deepfinder.py/actions/workflows/test.yml)
+[![GA](https://github.com/jparadadev/deepfinder.py/workflows/Tests/badge.svg)](https://github.com/jparadadev/deepfinder.py/actions/workflows/test.yml)
 
 Search attributes easily using dot paths. Within structures of type dictionary, list and embedded substructures with simple format 'dict.users.0.name'.
 
