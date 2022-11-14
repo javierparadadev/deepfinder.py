@@ -45,6 +45,8 @@ def _rec_helper(obj: Any, path: list[str]) -> Any:
 
     if hasattr(obj, '__dict__') and current_path in vars(obj):
         return _rec_helper(vars(obj)[current_path], path)
+    
+    return
 
 
 def _rec_list_helper(obj: list[Any], path: list[str], current_path: str):
