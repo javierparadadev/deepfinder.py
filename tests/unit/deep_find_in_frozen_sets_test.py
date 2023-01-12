@@ -1,5 +1,4 @@
 import unittest
-from typing import Set
 
 from deepfinder import deep_find
 
