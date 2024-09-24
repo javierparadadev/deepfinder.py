@@ -8,6 +8,7 @@ on:
 
 jobs:
     tests:
+        if: env.GITHUB_ACTIONS == 'true'
         runs-on: ubuntu-latest
         strategy:
           matrix:
