@@ -6,6 +6,7 @@ on:
 
 jobs:
   build:
+    if: env.GITHUB_ACTIONS == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Clone and checkout branch
@@ -17,6 +18,7 @@ jobs:
 
 
   publish-pip:
+    if: env.GITHUB_ACTIONS == 'true'
     needs: build
     runs-on: ubuntu-latest
     steps:
